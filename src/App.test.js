@@ -4,7 +4,6 @@ import App from "./App"
 
 jest.mock('pokeapi-js-wrapper')
 
-
 beforeEach(() => {
   Pokedex.mockReturnValue({
     resource: jest.fn().mockResolvedValue({

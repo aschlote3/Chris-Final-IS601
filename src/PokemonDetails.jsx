@@ -11,10 +11,10 @@ export default function PokemonDetails(props) {
         async function fetchData() {
             try {
                 // TODO Update this to call .getPokemonByName() <- pokemonName
-                console.log(pokemonName);
+                //console.log(pokemonName);
                 const response = await (new Pokedex()).getPokemonByName(pokemonName) //< -(pokemonName);
                 // TODO just store reponse
-                console.log(response);
+                //console.log(response);
                 setPokemon(response);
             }
             catch (error) {
@@ -45,12 +45,16 @@ export default function PokemonDetails(props) {
              </li>)
  
          </ul>*/
-        <Fragment><button onClick={goHome}>Home</button><button onClick={goBack}>Back</button><div><span>{pokemon.name}</span>
-            <img src={pokemon.sprites.front_default}></img>
-            <div>{pokemon.abilities.map((ability, i) => <div key={i}>{ability.ability.name}</div>)}</div>
-            <div>{pokemon.stats.map((stat, i) => <div key={i}>{stat.stat.name}: {stat.base_stat}</div>)}</div>
-            <div>{pokemon.types.map((type, i) => <div key={i}>{type.type.name}</div>)}</div>
-        </div>
+        <Fragment>
+            <button onClick={goHome}>Home</button>
+            <button onClick={goBack}>Back</button>
+            <div>
+                <span>{pokemon.name}</span>
+                <img src={pokemon.sprites.front_default}></img>
+                <div>{pokemon.abilities.map((ability, i) => <div key={i}>{ability.ability.name}</div>)}</div>
+                <div>{pokemon.stats.map((stat, i) => <div key={i}>{stat.stat.name}: {stat.base_stat}</div>)}</div>
+                <div>{pokemon.types.map((type, i) => <div key={i}>{type.type.name}</div>)}</div>
+            </div>
         </Fragment>
     );
 }
